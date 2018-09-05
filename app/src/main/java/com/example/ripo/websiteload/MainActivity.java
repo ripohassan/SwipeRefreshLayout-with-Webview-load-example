@@ -22,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         refreshLayout.setOnRefreshListener(this);
         htmlWebView = (WebView)findViewById(R.id.webView);
 
+        LoadUrl();
+    }
+
+    public void  LoadUrl(){
         htmlWebView.setWebViewClient(new CustomWebViewClient());
         WebSettings webSetting = htmlWebView.getSettings();
         webSetting.setJavaScriptEnabled(true);
@@ -35,9 +39,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             @Override
             public void run() {
                 refreshLayout.setRefreshing(false);
+                LoadUrl();
             }
 
-        }, 3000);
+        }, 2000);
 
     }
 
